@@ -7,11 +7,17 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: solid 1px red;
+  }
+
   #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    background-color: orange;
-    /* padding: 2rem; */
+    width: 100%;
   }
 
   :root {
@@ -19,35 +25,41 @@
     line-height: 1.5;
     font-weight: 400;
 
-    --color-cream: 34, 61, 83;
+    /* --primary: blue;
+    --secondary: yellow;
+    --secondary-100: #dada00;
+    --white: #fff;
+    --black: #000000; */
+
+    --color-purple-dark: 267deg 18% 10% /1;
+    --color-purple-saturated: 295deg 11% 22% /1;
+    --color-gray-base: 255deg 5% 34% /1;
+    --color-light: 270deg 5% 92% /1;
+    --color-light-darken: 257deg 4% 62% /1;
+
+    /* --color-cream: 34, 61, 83;
     --color-beige: 23, 75, 78;
     --color-orange: 14, 84, 55;
     --color-green: 163, 70, 15;
     --color-gold: 36, 77, 53;
-    --color-white: 0, 0, 100;
+    --color-white: 0, 0, 100; */
 
     --font-inter: "Inter", sans-serif;
     --font-ibm: "IBM Plex Sans", sans-serif;
   }
 
-  a {
-    font-weight: 500;
-    color: theme(colors.gold);
-    text-decoration: inherit;
-  }
-
-  a:hover {
-    color: theme(colors.orange);
-  }
-
   body {
     margin: 0;
+    padding: 0;
     display: flex;
-    place-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 1440px;
+    line-height: 1.4;
+    @apply bg-light-base;
+    @apply text-purple-dark;
+    /* max-width: 1280px;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 100vh; */
   }
 
   h1 {
@@ -55,26 +67,11 @@
     line-height: 1.1;
   }
 
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: theme(colors.white);
-    cursor: pointer;
-    transition: all 0.25s;
-  }
-
-  button:hover {
-    border-color: theme(colors.orange);
-  }
-
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+  /* .container {
+    background-color: rgb(250, 200, 109);
+    @apply flex flex-col;
+    @apply p-4 md:p-20;
+  } */
 }
 
 @layer components {

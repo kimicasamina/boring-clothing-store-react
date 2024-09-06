@@ -6,6 +6,7 @@ import Home from "../pages/home";
 import Catalog from "../pages/catalog";
 import Company from "../pages/company";
 import Checkout from "../pages/checkout";
+import Collections from "../pages/collections";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/company",
         element: <Company />,
+      },
+      {
+        path: "/collections",
+        element: <Collections />,
       },
       {
         path: "/checkout",
