@@ -4,8 +4,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <nav className="flex-1 w-full max-w-screen-desktop flex justify-between items-center ">
-      <div className="branding w-[140px] py-4">
+    <nav className="h-auto w-full max-w-screen-desktop flex justify-between items-center py-8">
+      <div className="branding w-[140px] ">
         <p className="text-md">Boring Clothing</p>
       </div>
 

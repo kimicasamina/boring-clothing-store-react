@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: solid 1px red;
+    border: solid 1px hotpink;
   }
 
   #root {
@@ -34,7 +34,8 @@
     --color-purple-dark: 267deg 18% 10% /1;
     --color-purple-saturated: 295deg 11% 22% /1;
     --color-gray-base: 255deg 5% 34% /1;
-    --color-light: 270deg 5% 92% /1;
+    /* --color-light: 270deg 5% 92% /1; */
+    --color-light: 0deg 0% 100% /1;
     --color-light-darken: 257deg 4% 62% /1;
 
     /* --color-cream: 34, 61, 83;
@@ -55,11 +56,17 @@
     justify-content: center;
     width: 100%;
     line-height: 1.4;
+    overflow: hidden;
     @apply bg-light-base;
     @apply text-purple-dark;
     /* max-width: 1280px;
     margin: 0 auto;
     min-height: 100vh; */
+  }
+
+  img {
+    width: 100%;
+    max-width: 600px;
   }
 
   h1 {
