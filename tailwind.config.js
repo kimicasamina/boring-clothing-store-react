@@ -8,12 +8,13 @@ export default {
         saturated: "hsl(var(--color-purple-saturated))",
       },
       gray: {
-        base: "hsl(var(--color-gray))",
+        base: "hsl(var(--color-gray-base))",
       },
       light: {
         base: "hsl(var(--color-light))",
         darken: "hsl(var(--color-light-darken))",
       },
+      alert: "hsl(var(--color-alert))",
     },
     screens: {
       mobile: "365px",

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Categories from "./categories";
 import ProductList from "./products/productlist";
 import { fetchProducts } from "../../services/products/productsapi";
+import { GlobalContext } from "../../context/globalProvider";
 
 export default function Shop() {
+  // const { products, cart } = useContext(GlobalContext);
   const [products, setProducts] = useState(null);
   const [category, setCategory] = useState("");
 
@@ -16,6 +18,10 @@ export default function Shop() {
 
     fetchData();
   }, [category]);
+
+  if (!products) {
+    return <h1 className="">Loading Page...</h1>;
+  }
 
   return (
     <>

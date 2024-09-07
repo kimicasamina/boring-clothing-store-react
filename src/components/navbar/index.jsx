@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { fetchCart } from "../../services/carts/cartsapi";
 
 export default function Navbar() {
+  const [cart, setCart] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const results = await fetchCart();
+      console.log("CART: ", results);
+      setCart(results);
+    };
+
+    fetchData();
+  }, [cart]);
   return (
-    <nav className="h-auto w-full max-w-screen-desktop flex justify-between items-center py-8 px-20">
+    <nav className="min-h-[120px] w-full max-w-screen-desktop flex justify-between items-center py-8 px-20">
       <div className="branding w-[140px] ">
         <p className="text-md">Boring Clothing</p>
       </div>
@@ -25,7 +37,10 @@ export default function Navbar() {
       </ul>
 
       <div className="w-[140px] flex justify-end">
-        <FaShoppingCart className="w-6 h-6 " />
+        <button className="btn cart__btn ">
+          <div className="cart__count"></div>
+          <FaShoppingCart className="w-4 h-4 left-2 top-2 z-10 absolute text-light-base" />
+        </button>
       </div>
     </nav>
   );
