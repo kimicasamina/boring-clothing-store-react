@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../../../context/globalProvider";
 
-export default function Categories({ setCategory }) {
+export default function Categories({ switchCategory }) {
   // const [categories, setCategories] = useState([
   //   "accessories",
   //   "tshirt",
@@ -10,27 +11,27 @@ export default function Categories({ setCategory }) {
   // ]);
   return (
     <ul className="flex gap-x-2 mb-12">
-      <button className="" onClick={() => setCategory("tshirt")}>
+      <button className="" onClick={() => switchCategory("tshirt")}>
         <span className="w-[100px] font-work-sans h-8 rounded-2xl flex justify-center items-center border border-bkg-dark text-[14px] hover:bg-purple-dark hover:text-light-base cursor-pointer transition-all duration-200">
           #shirts
         </span>
       </button>
-      <button className="" onClick={() => setCategory("jeans")}>
+      <button className="" onClick={() => switchCategory("jeans")}>
         <span className="w-[100px] font-work-sans h-8 rounded-2xl flex justify-center items-center border border-bkg-dark text-[14px] hover:bg-purple-dark hover:text-light-base cursor-pointer transition-all duration-200">
           #jeans
         </span>
       </button>
-      <button className="" onClick={() => setCategory("jacket")}>
+      <button className="" onClick={() => switchCategory("jacket")}>
         <span className="w-[100px] font-work-sans h-8 rounded-2xl flex justify-center items-center border border-bkg-dark text-[14px] hover:bg-purple-dark hover:text-light-base cursor-pointer transition-all duration-200">
           #jacket
         </span>
       </button>
-      <button className="" onClick={() => setCategory("bags")}>
+      <button className="" onClick={() => switchCategory("bags")}>
         <span className="w-[100px] font-work-sans h-8 rounded-2xl flex justify-center items-center border border-bkg-dark text-[14px] hover:bg-purple-dark hover:text-light-base cursor-pointer transition-all duration-200">
           #bags
         </span>
       </button>
-      <button className="" onClick={() => setCategory("")}>
+      <button className="" onClick={() => switchCategory("")}>
         <span className="w-[100px] font-work-sans h-8 rounded-2xl flex justify-center items-center border border-bkg-dark text-[14px] hover:bg-purple-dark hover:text-light-base cursor-pointer transition-all duration-200">
           #Az
         </span>

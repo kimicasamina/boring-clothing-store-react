@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Product from "../product";
+import { GlobalContext } from "../../../../context/globalProvider";
 
-export default function ProductList({ products, handleAddToCart }) {
+export default function ProductList({ products, addToCart, filteredProducts }) {
   if (!products) return <h1>Loading...</h1>;
+  console.log("FILTERED: ", filteredProducts);
 
   return (
     <ul className="cards">
-      {products.map((product) => (
-        <li key={product.id}>
-          <Product product={product} handleAddToCart={handleAddToCart} />
-          {/* <Link href={`/products/${product.permalink}`}>
-              <a>
-              </a>
-            </Link> */}
-        </li>
-      ))}
+      {filteredProducts
+        ? filteredProducts.map((product) => (
+            <li key={product.id}>
+              <Product product={product} addToCart={addToCart} />
+            </li>
+          ))
+        : products.map((product) => (
+            <li key={product.id}>
+              <Product product={product} addToCart={addToCart} />
+            </li>
+          ))}
     </ul>
   );
 }

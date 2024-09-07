@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { handleAddToCart } from "../../../../services/carts/cartsapi";
 
-export default function Product({ product }) {
+export default function Product({ product, addToCart }) {
   const { name, price, image, id } = product;
-
+  console.log("ID: ", id);
   return (
     <div className="card">
       <img src={image?.url} alt="" className="card__image" />
@@ -11,7 +11,7 @@ export default function Product({ product }) {
         <p className="card__title">{name}</p>
         <p className="card__price">{price?.formatted_with_symbol}</p>
       </div>
-      <button className="btn card__btn" onClick={() => handleAddToCart(id, 1)}>
+      <button className="btn card__btn" onClick={() => addToCart(id, 1)}>
         ADD TO CART
       </button>
     </div>
