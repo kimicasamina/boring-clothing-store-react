@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: solid 1px hotpink;
+    /* border: solid 1px hotpink; */
   }
 
   #root {
@@ -56,7 +56,7 @@
     justify-content: center;
     width: 100%;
     line-height: 1.4;
-    overflow: hidden;
+    /* overflow: hidden; */
     @apply bg-light-base;
     @apply text-purple-dark;
     /* max-width: 1280px;
@@ -82,6 +82,47 @@
 }
 
 @layer components {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    align-items: stretch;
+    @apply gap-y-[60px] tablet:gap-[30px];
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    width: 100%;
+    @apply shadow-stripe;
+    /* min-height: 650px; */
+    /* box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3); */
+    /* max-width: 100%; */
+  }
+
+  .card .card__image {
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+  }
+
+  .card .card__details {
+    height: 220px;
+    padding: 20px;
+    @apply flex flex-col justify-start gap-y-2;
+  }
+
+  .card .card__title {
+    @apply text-4xl font-bold;
+  }
+
+  .card .card__price {
+    @apply text-3xl;
+  }
+
+  .card__btn {
+    @apply px-3 py-3;
+    @apply w-full;
+    @apply bg-purple-saturated text-light-base;
+  }
 }
 
 @layer utilities {
