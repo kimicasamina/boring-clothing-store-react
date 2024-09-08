@@ -5,28 +5,20 @@ import { fetchProducts } from "../../services/products/productsapi";
 import { GlobalContext } from "../../context/globalProvider";
 
 export default function Shop() {
-  const { products, addToCart, switchCategory, filteredProducts } =
-    useContext(GlobalContext);
-  // const [products, setProducts] = useState(null);
-  // const [category, setCategory] = useState("");
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await fetchProducts(category);
-  //     console.log("RESULTS: ", result);
-  //     setProducts(result);
-  //   };
-
-  //   fetchData();
-  // }, [category]);
-
-  // if (!products) {
-  //   return <h1 className="">Loading Page...</h1>;
-  // }
+  const {
+    products,
+    addToCart,
+    switchCategory,
+    filteredProducts,
+    setFilteredProducts,
+  } = useContext(GlobalContext);
 
   return (
     <>
-      <Categories switchCategory={switchCategory} />
+      <Categories
+        products={products}
+        setFilteredProducts={setFilteredProducts}
+      />
       <ProductList
         products={products}
         addToCart={addToCart}

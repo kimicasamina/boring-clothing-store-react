@@ -19,13 +19,20 @@ export default function GlobalProvider({ children }) {
 
   const switchCategory = (slug) => {
     console.log("LIST OF PRODUCTS ", products);
+    console.log("KEYWORD:", slug);
     const results = products.filter((item) => {
+      console.log(item.categories[0].slug);
       if (item.categories[0].slug === slug) {
         return item;
       }
     });
     console.log("FILTERED PRODUCTS", results);
     setFilteredProducts(results);
+  };
+
+  const getProducts = async () => {
+    const products = await fetchProducts(category ? category : null);
+    setProducts(products);
   };
 
   useEffect(() => {
@@ -53,9 +60,8 @@ export default function GlobalProvider({ children }) {
         addToCart,
         products,
         setProducts,
-        category,
-        setCategory,
-        switchCategory,
+        filteredProducts,
+        setFilteredProducts,
       }}
     >
       {children}
