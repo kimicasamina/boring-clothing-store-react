@@ -7,6 +7,7 @@ import Shop from "../pages/shop";
 import Company from "../pages/company";
 import Checkout from "../pages/checkout";
 import Collections from "../pages/collections";
+import Cart from "../pages/cart/index";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/collections",
         element: <Collections />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/checkout",
