@@ -7,10 +7,10 @@ export default function RootLayout() {
   return (
     <div
       id="rootLayout"
-      className="w-full max-w-screen-desktop min-h-screen mx-auto flex flex-col"
+      className="w-full max-w-screen-desktop min-h-screen mx-auto flex flex-col justify-between"
     >
       <Navbar />
-      <main className="py-8 px-8 tablet:py-20 tablet:px-20">
+      <main className="h-auto py-8 px-8  tablet:px-14">
         <Outlet />
       </main>
     </div>

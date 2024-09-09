@@ -8,7 +8,7 @@ export default function Navbar() {
   const { cart } = useContext(GlobalContext);
 
   return (
-    <nav className="min-h-[120px] w-full max-w-screen-desktop flex justify-between items-center py-8 px-8 tablet:py-20 tablet:px-20">
+    <nav className="w-full max-w-screen-desktop flex justify-between items-center py-8 px-8 tablet:py-8 tablet:px-14">
       <div className="branding w-[140px] ">
         <p className="text-md">Boring Clothing</p>
       </div>

@@ -18,6 +18,8 @@
 
   #root {
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   :root {
@@ -162,6 +164,32 @@
     right: -10px;
     @apply bg-alert;
   }
+
+  .branding__title {
+    @apply text-6xl text-center space-x-2;
+    @apply text-purple-dark;
+  }
+
+  .branding__keyword {
+    @apply font-normal text-xl font-ibm px-2;
+    @apply relative;
+  }
+
+  .branding__keyword:not(:first-child)::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    @apply bg-purple-dark absolute -left-3 bottom-[10px];
+  }
+
+  /* .branding__keyword::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    @apply bg-purple-dark absolute -left-3 top-2;
+  } */
 }
 
 @layer utilities {
