@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/globalProvider";
 
 export default function Cart() {
-  const { cart, setCart, emptyCart, updateCartItemQty } =
-    useContext(GlobalContext);
+  const { cart, setCart, emptyCart, updateCartQty } = useContext(GlobalContext);
   console.log("CART: ", cart);
   if (!cart) {
     return <h1 className="">Loading...</h1>;
@@ -35,7 +34,9 @@ export default function Cart() {
                   <div className="flex justify-start items-center gap-x-4 ">
                     <button
                       className="btn cart__item__btn"
-                      onClick={() => updateCartItemQty(item.id, 1)}
+                      onClick={() => {
+                        updateCartQty(item.id, 1);
+                      }}
                     >
                       +
                     </button>
@@ -44,7 +45,7 @@ export default function Cart() {
                     </span>
                     <button
                       className="btn cart__item__btn"
-                      onClick={() => updateCartItemQty(item.id, -1)}
+                      onClick={() => updateCartQty(item.id, -1)}
                     >
                       -
                     </button>

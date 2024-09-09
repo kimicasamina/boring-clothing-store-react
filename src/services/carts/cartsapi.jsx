@@ -18,13 +18,15 @@ export const handleEmptyCart = async () => {
   return cart;
 };
 
-export const handleUpdateCartQty = async (productId, quantity) => {
-  const data = await commerce.cart.update(productId, {
-    quantity: quantity,
+export const handleUpdateCartQty = async (productId, numOfItem) => {
+  const { items } = await commerce.cart.update(productId, {
+    quantity: numOfItem,
   });
-  console.log("updating cart quantity... ", data);
-  return data;
-  // commerce.cart
-  //   .update(productId, { quantity: quantity })
-  //   .then((response) => console.log(response));
+  console.log("updating cart quantity... ", items);
+  return items;
+
+  // commerce.cart.update(productId, { quantity: numOfItem }).then((response) => {
+  //   console.log(response);
+  //   return response;
+  // });
 };

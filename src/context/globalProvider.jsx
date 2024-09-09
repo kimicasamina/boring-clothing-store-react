@@ -26,10 +26,16 @@ export default function GlobalProvider({ children }) {
     setCart(results);
   };
 
-  const updateCartItemQty = async (productId, quantity) => {
-    console.log("UPDATE CART QUANTITY ...");
-    const results = await handleUpdateCartQty(productId, quantity);
+  const updateCartQty = async (productId, numOfItem) => {
+    console.log("UPDATE CART QUANTITY ...", productId);
+    console.log("QUANTITY: ", numOfItem);
+    const results = await handleUpdateCartQty(productId, numOfItem);
     console.log("RESULTS: ", results);
+    cart.line_items.map((item) => {
+      if (item.id === productId) {
+        item.quantity + numOfItem;
+      }
+    });
     setCart(results);
   };
 
@@ -61,7 +67,7 @@ export default function GlobalProvider({ children }) {
         filteredProducts,
         setFilteredProducts,
         emptyCart,
-        updateCartItemQty,
+        updateCartQty,
       }}
     >
       {children}
