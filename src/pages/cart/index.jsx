@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/globalProvider";
 
 export default function Cart() {
-  const { cart, setCart } = useContext(GlobalContext);
+  const { cart, setCart, emptyCart, updateCartItemQty } =
+    useContext(GlobalContext);
   console.log("CART: ", cart);
   if (!cart) {
     return <h1 className="">Loading...</h1>;
@@ -31,21 +33,29 @@ export default function Cart() {
                     Total: {item.line_total.formatted_with_symbol}
                   </span>
                   <div className="flex justify-start items-center gap-x-4 ">
-                    <button className="btn cart__item__btn">+</button>
+                    <button
+                      className="btn cart__item__btn"
+                      onClick={() => updateCartItemQty(item.id, 1)}
+                    >
+                      +
+                    </button>
                     <span className="text-2xl flex justify-center items-center">
                       {item.quantity}
                     </span>
-                    <button className="btn cart__item__btn">-</button>
+                    <button
+                      className="btn cart__item__btn"
+                      onClick={() => updateCartItemQty(item.id, -1)}
+                    >
+                      -
+                    </button>
                   </div>
-                  {/* <div className="flex flex-col tablet:flex-row gap-x-4 gap-y-2 items-center">
-                  </div> */}
                 </div>
               </div>
             ))
           : null}
       </div>
 
-      <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col gap-y-4 items-start ">
         <div className="flex gap-x-4 items-center">
           <span className="font-bold text-4xl">Subtotal: </span>
           <span className="text-4xl">
@@ -53,8 +63,12 @@ export default function Cart() {
           </span>
         </div>
         <div className="flex gap-x-4">
-          <button className="btn btn__clear ">CLEAR CART</button>
-          <button className="btn btn__checkout ">CHECKOUT</button>
+          <button className="btn btn__clear " onClick={() => emptyCart()}>
+            CLEAR CART
+          </button>
+          <Link to="/checkout" className="btn btn__checkout ">
+            CHECKOUT
+          </Link>
         </div>
       </div>
     </div>

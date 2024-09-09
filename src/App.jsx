@@ -24,7 +24,7 @@ function App() {
 
   const handleUpdateCartQty = async (productId, quantity) => {
     const { cart } = await commerce.cart.update(productId, { quantity });
-    setCart(cart);
+    return cart;
   };
 
   const handleRemoveFromCart = async (productId, quantity) => {

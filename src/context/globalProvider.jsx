@@ -1,5 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
-import { fetchCart, handleAddToCart } from "../services/carts/cartsapi";
+import {
+  fetchCart,
+  handleAddToCart,
+  handleEmptyCart,
+  handleUpdateCartQty,
+} from "../services/carts/cartsapi";
 import { fetchProducts } from "../services/products/productsapi";
 
 export const GlobalContext = React.createContext();
@@ -12,6 +17,19 @@ export default function GlobalProvider({ children }) {
     console.log(productId, quantity);
     const results = await handleAddToCart(productId, quantity);
     console.log("ADD TO CART: ", results);
+    setCart(results);
+  };
+
+  const emptyCart = async () => {
+    console.log("EMPTYING CART ...");
+    const results = await handleEmptyCart();
+    setCart(results);
+  };
+
+  const updateCartItemQty = async (productId, quantity) => {
+    console.log("UPDATE CART QUANTITY ...");
+    const results = await handleUpdateCartQty(productId, quantity);
+    console.log("RESULTS: ", results);
     setCart(results);
   };
 
@@ -42,6 +60,8 @@ export default function GlobalProvider({ children }) {
         setProducts,
         filteredProducts,
         setFilteredProducts,
+        emptyCart,
+        updateCartItemQty,
       }}
     >
       {children}
