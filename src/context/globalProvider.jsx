@@ -6,12 +6,17 @@ import {
   handleUpdateCartQty,
 } from "../services/carts/cartsapi";
 import { fetchProducts } from "../services/products/productsapi";
+import { fetchShippingCountries } from "../services/checkout/checkoutapi";
 
 export const GlobalContext = React.createContext();
 export default function GlobalProvider({ children }) {
   const [cart, setCart] = useState(null);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(null);
+
+  // saving form inputs data
+  const [checkoutDetails, setCheckoutDetails] = useState({});
+  const [checkoutToken, setCheckoutToken] = useState(null);
 
   const addToCart = async (productId, quantity) => {
     console.log(productId, quantity);
@@ -31,11 +36,6 @@ export default function GlobalProvider({ children }) {
     console.log("QUANTITY: ", numOfItem);
     const results = await handleUpdateCartQty(productId, numOfItem);
     console.log("RESULTS: ", results);
-    // const newCart = cart.line_items.map((item) => {
-    //   if (item.id === productId) {
-    //     item.quantity + numOfItem;
-    //   }
-    // });
     setCart(results);
   };
 
@@ -57,6 +57,15 @@ export default function GlobalProvider({ children }) {
     fetchData();
   }, [cart, addToCart]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const countries = await fetchShippingCountries();
+      console.log(countries);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -68,6 +77,8 @@ export default function GlobalProvider({ children }) {
         setFilteredProducts,
         emptyCart,
         updateCartQty,
+        checkoutDetails,
+        setCheckoutDetails,
       }}
     >
       {children}

@@ -1,12 +1,15 @@
-import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 
 export const userInfoSchema = yup.object().shape({
-  firstName: yup.string().required("Firstname is required."),
-  lastName: yup.string().required("Lastname is required."),
-  email: yup
+  firstName: yup
     .string()
-    .email("Invalid email address")
-    .required("Email is required."),
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  lastName: yup
+    .string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  email: yup.string().email("Invalid email").required("Required"),
 });

@@ -1,6 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
+import CheckoutForm from "../Form";
 
-export default function CheckoutStepper({ stepsConfig }) {
+const listOfSteps = [
+  "Customer Info",
+  "Shipping Info",
+  "Payment",
+  "Confirmation",
+];
+
+export default function Stepper({ checkoutToken }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [isComplete, setIsComplete] = useState(false);
   const [margins, setMargins] = useState({
@@ -13,17 +21,17 @@ export default function CheckoutStepper({ stepsConfig }) {
   useEffect(() => {
     setMargins({
       marginLeft: stepRef.current[0].offsetWidth / 2,
-      marginRight: stepRef.current[stepsConfig.length - 1].offsetWidth / 2,
+      marginRight: stepRef.current[listOfSteps.length - 1].offsetWidth / 2,
     });
-  }, [stepRef, stepsConfig.length]);
+  }, [stepRef, listOfSteps.length]);
 
-  if (!stepsConfig.length) {
+  if (!listOfSteps.length) {
     return <></>;
   }
 
   const handleNext = () => {
     setCurrentStep((prevStep) => {
-      if (prevStep === stepsConfig.length) {
+      if (prevStep === listOfSteps.length) {
         setIsComplete(true);
         return prevStep;
       } else {
@@ -33,23 +41,19 @@ export default function CheckoutStepper({ stepsConfig }) {
   };
 
   const calculateProgressBarWidth = () => {
-    return ((currentStep - 1) / (stepsConfig.length - 1)) * 100;
+    return ((currentStep - 1) / (listOfSteps.length - 1)) * 100;
   };
 
-  const ActiveComponent = stepsConfig[currentStep - 1].Component;
-
-  console.log("REFS:", stepRef.current);
-  console.log("MARGINS: ", margins);
   return (
     <div className="stepper-container">
       <div className="stepper">
-        {stepsConfig.map((step, index) => {
+        {listOfSteps.map((step, index) => {
           return (
             <div
               className={`step ${
                 currentStep > index + 1 || isComplete ? "complete" : ""
               } ${currentStep === index + 1 ? "active" : ""} `}
-              key={step.name}
+              key={index}
               ref={(el) => (stepRef.current[index] = el)}
             >
               <div className="step-number">
@@ -80,17 +84,28 @@ export default function CheckoutStepper({ stepsConfig }) {
           );
         })}
       </div>
-      <div className="flex flex-col gap-y-8">
-        <ActiveComponent />
-        {!isComplete && (
-          <button
-            className="btn bg-purple-dark text-light-base mx-auto w-[100px]"
-            onClick={handleNext}
-          >
-            {currentStep === stepsConfig.length ? "Finish" : "Next"}
-          </button>
-        )}
-      </div>
+
+      <CheckoutForm
+        currentStep={currentStep}
+        handleNext={handleNext}
+        checkoutToken={checkoutToken}
+      />
     </div>
   );
 }
+
+// <div className="flex flex-col gap-y-8">
+//   {/* <ActiveComponent /> */}
+//   {currentStep === 1 && <CustomerInfo handleNext={handleNext} />}
+//   {currentStep === 2 && <ShippingAddress handleNext={handleNext} />}
+//   {currentStep === 3 && <Payment handleNext={handleNext} />}
+//   {currentStep === 4 && <Confirmation handleNext={handleNext} />}
+//   {!isComplete && (
+//     <button
+//       className="btn bg-purple-dark text-light-base mx-auto w-[100px]"
+//       onClick={() => handleNext()}
+//     >
+//       {currentStep === listOfSteps.length ? "Finish" : "Next"}
+//     </button>
+//   )}
+// </div>
