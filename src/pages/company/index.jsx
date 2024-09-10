@@ -7,28 +7,28 @@ const company = [
     id: 1,
     title: "Our Story",
     content:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, ipsam quae? Reiciendis porro perspiciatis illo, ipsam deserunt omnis vel placeat, rerum aperiam culpa nisi. Dicta quo repellat eos sunt. Nihil doloremque nobis qui, explicabo quod labore aut repellat inventore, facere voluptas autem. Eos voluptates officiis pariatur quidem expedita.",
+      "Boring Clothing was born from a simple idea: to offer high-quality, stylish clothing that reflects individuality and stands the test of time. Our founders envisioned a place where fashion meets comfort and where every piece of clothing tells a story. From our humble beginnings, we have grown into a beloved destination for fashion enthusiasts. We’ve carefully handpicked each item in our collection, ensuring that every piece embodies our commitment to craftsmanship and affordability.",
     image_url: story,
   },
   {
     id: 2,
     title: "Philosophy",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, corrupti, esse iste magnam odio dolorum nam adipisci ducimus et illo nulla delectus modi officiis! Nesciunt voluptas vitae, facilis, reprehenderit corporis velit necessitatibus nulla excepturi nostrum cupiditate laborum. Ipsam ducimus perferendis nostrum quae quam.  esse iste magnam odio dolorum nam adipisci ducimus et illo nulla delectus modi officiis! Nesciunt voluptas vitae, facilis.",
+      "Our clothing philosophy is rooted in a commitment to quality, individuality, and sustainability. We believe that fashion should be more than just a way to dress; it should be a reflection of who you are, a statement of your values, and a celebration of the artistry and craftsmanship behind every piece",
     image_url: philosophy,
   },
   {
     id: 3,
     title: "Production",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, corrupti, esse iste magnam odio dolorum nam adipisci ducimus et illo nulla delectus modi officiis! Nesciunt voluptas vitae, facilis, reprehenderit corporis velit necessitatibus nulla excepturi nostrum cupiditate laborum. Ipsam ducimus perferendis nostrum quae quam.",
+      "We are dedicated to providing clothing that stands the test of time. Our commitment to quality means we carefully select the finest materials and work with skilled artisans who share our passion for excellence. Each garment is crafted with precision and care, ensuring durability and comfort without compromising on style",
     image_url: production,
   },
   {
     id: 4,
     title: "Logo",
     content:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa, ipsam quae? Reiciendis porro perspiciatis illo, ipsam deserunt omnis vel placeat, rerum aperiam culpa nisi. Dicta quo repellat eos sunt. Nihil doloremque nobis qui, explicabo quod labore aut repellat inventore, facere voluptas autem. Eos voluptates officiis pariatur quidem expedita.",
+      "The Boring logo is more than just a visual mark; it represents our brand’s values of quality and efficiency. It serves as a symbol of our commitment to delivering exceptional fashion experiences and helps establish a strong, recognizable presence in the fashion world.",
     image_url: logo,
   },
 ];
@@ -45,7 +45,7 @@ export default function Company() {
           />
           <div className="flex-1 flex flex-col gap-y-4 py-4 tablet:p-8">
             <h1 className="text-3xl font-semibold ">{item.title}</h1>
-            <p className="">{item.content}</p>
+            <p className="leading-relaxed">{item.content}</p>
             <Link
               to="/shop"
               className="btn px-8 py-2 bg-purple-dark rounded-sm text-center hover:bg-purple-saturated text-light-base w-full max-w-[120px]"

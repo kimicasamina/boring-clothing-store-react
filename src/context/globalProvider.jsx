@@ -31,12 +31,12 @@ export default function GlobalProvider({ children }) {
     console.log("QUANTITY: ", numOfItem);
     const results = await handleUpdateCartQty(productId, numOfItem);
     console.log("RESULTS: ", results);
-    cart.line_items.map((item) => {
+    const newCart = cart.line_items.map((item) => {
       if (item.id === productId) {
         item.quantity + numOfItem;
       }
     });
-    setCart(results);
+    setCart(newCart);
   };
 
   useEffect(() => {
