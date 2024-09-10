@@ -35,24 +35,23 @@ const company = [
 
 export default function Company() {
   return (
-    <div className="flex flex-wrap flex-col gap-y-14">
+    <div className="flex flex-wrap flex-col gap-y-20">
       {company.map((item) => (
-        <div className="flex flex-col tablet:flex-row w-full" key={item.id}>
+        <div
+          className="flex flex-col tablet:flex-row gap-x-4 gap-y-4 w-full"
+          key={item.id}
+        >
           <img
             src={item.image_url}
             alt=""
-            className="w-auto tablet:max-w-[350px]  object-cover"
+            className="w-full h-[400px] object-cover "
           />
-          <div className="flex-1 flex flex-col gap-y-4 py-4 tablet:p-8">
-            <h1 className="text-3xl font-semibold ">{item.title}</h1>
+          <div className="w-full flex flex-col gap-y-4 py-20 px-4">
+            <h1 className="text-5xl font-bold ">{item.title}</h1>
             <p className="leading-relaxed">{item.content}</p>
-            <Link
-              to="/shop"
-              className="btn px-8 py-2 bg-purple-dark rounded-sm text-center hover:bg-purple-saturated text-light-base w-full max-w-[120px]"
-            >
-              SHOP
-            </Link>
           </div>
+          {/* <div className="flex-1 flex flex-col gap-y-4 py-4 tablet:p-8">
+          </div> */}
         </div>
       ))}
     </div>

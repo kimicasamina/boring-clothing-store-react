@@ -24,9 +24,9 @@ export const handleUpdateCartQty = async (productId, numOfItem) => {
   });
   console.log("updating cart quantity... ", items);
   return items;
+};
 
-  // commerce.cart.update(productId, { quantity: numOfItem }).then((response) => {
-  //   console.log(response);
-  //   return response;
-  // });
+export const handleRemoveFromCart = async (productId, quantity) => {
+  const { cart } = await commerce.cart.remove(productId);
+  setCart(cart);
 };

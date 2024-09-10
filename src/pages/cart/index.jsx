@@ -13,7 +13,7 @@ export default function Cart() {
       <h1 className="text-4xl font-semibold">Cart</h1>
       <div className="flex flex-col ">
         {cart
-          ? cart.line_items.map((item) => (
+          ? cart?.line_items.map((item) => (
               <div
                 className=" flex flex-col items-center tablet:flex-row tablet:h-auto py-10 tablet:py-8 tablet:gap-x-6 border-purple-dark border-t "
                 key={item.id}
@@ -35,7 +35,7 @@ export default function Cart() {
                     <button
                       className="btn cart__item__btn"
                       onClick={() => {
-                        updateCartQty(item.id, 1);
+                        updateCartQty(item.id, item.quantity + 1);
                       }}
                     >
                       +
@@ -45,7 +45,7 @@ export default function Cart() {
                     </span>
                     <button
                       className="btn cart__item__btn"
-                      onClick={() => updateCartQty(item.id, -1)}
+                      onClick={() => updateCartQty(item.id, item.quantity - 1)}
                     >
                       -
                     </button>

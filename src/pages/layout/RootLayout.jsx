@@ -10,7 +10,7 @@ export default function RootLayout() {
       className="w-full max-w-screen-desktop min-h-screen mx-auto flex flex-col justify-between"
     >
       <Navbar />
-      <main className="h-auto py-8 px-8  tablet:px-14">
+      <main className="flex-1 py-8 px-8  tablet:px-14">
         <Outlet />
       </main>
     </div>
