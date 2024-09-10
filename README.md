@@ -6,7 +6,7 @@ Built using ReactJS, Tailwindcss, Commercejs and Stripe.
 
 ## Features
 
-- **Shopping Cart and Checkout** - User-friendly shopping cart that allows easy addition, removal, and editing of items. Streamlined checkout process with multiple payment options, including credit/debit cards.
+- **Homepage** - Features a banner showcasing current promotions, new arrivals, and seasonal collections.
 
 - **Categories** - Well-organized categories for easy browsing.
 
@@ -14,11 +14,11 @@ Built using ReactJS, Tailwindcss, Commercejs and Stripe.
 
 - **Product** - Display detailed list of products with high-resolution images.
 
-- **Homepage** - Features a banner showcasing current promotions, new arrivals, and seasonal collections.
+- **Shopping Cart and Checkout** - User-friendly shopping cart that allows easy addition, removal, and editing of items. Streamlined checkout process with multiple payment options, including credit/debit cards.
 
 ## Platform and Technologies
 
-- **CMS** - Built on Commercejs
+- **CMS** - Built on Commercejs for easy integration.
 - **Payment Gateway** - Stripe
 - **Programming Languages** - Utilizes JavaScript, Tailwindcss and React for front-end development.
 - **Hosting** - Hosted on render.com
