@@ -1,8 +1,8 @@
 # Boring Clothing Online Store
 
-live url: https://boring-apparel.onrender.com/
+Website: https://boring-apparel.onrender.com/
 
-Built using ReactJS, Tailwindcss, Commercejs and Stripe.
+A dynamic online clothing store website designed to offer users a seamless shopping experience.
 
 ## Features
 
@@ -12,9 +12,11 @@ Built using ReactJS, Tailwindcss, Commercejs and Stripe.
 
 - **Collection** - Present a wide range of clothing, including detailed product descriptions, and high-quality images.
 
-- **Product** - Display detailed list of products with high-resolution images.
+- **Product** - Display a detailed list of products with high-resolution images.
 
-- **Shopping Cart and Checkout** - User-friendly shopping cart that allows easy addition, removal, and editing of items. Streamlined checkout process with multiple payment options, including credit/debit cards.
+- **Shopping Cart and Checkout** - User-friendly shopping cart that allows easy addition, removal, and editing of items. Streamlined checkout process with multiple shipping and payment options.
+
+
 
 ## Platform and Technologies
 
